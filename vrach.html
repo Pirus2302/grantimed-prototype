@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Страница врача — ГрантиМед</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF5F2; --surface:#fff; --powder:#F0E0D8; --powder-2:#E4CABF;
+  --line:#E3D0C7; --ink:#2B2320; --ink-2:#6C5B54;
+  --accent:#9B4A3F; --accent-d:#7C382F; --dark:#3A2A25;
+  --r:10px; --font:'Golos Text',-apple-system,Segoe UI,Roboto,sans-serif;
+}
+body.t2{--bg:#fff;--surface:#fff;--powder:#EDDCD4;--powder-2:#DDBEB1;--line:#E6D6CE;
+  --ink:#241C19;--ink-2:#6A5A53;--accent:#A8503F;--accent-d:#873D2F;--dark:#2A1F1B;
+  --r:6px;--font:'Manrope',-apple-system,Segoe UI,Roboto,sans-serif}
+body.t3{--bg:#FDF8F6;--surface:#fff;--powder:#EBD6CD;--powder-2:#DCB6A6;--line:#E7D4CB;
+  --ink:#2E211C;--ink-2:#6B574F;--accent:#A04A3B;--accent-d:#82382B;--dark:#2E211C;
+  --r:14px;--font:'Onest',-apple-system,Segoe UI,Roboto,sans-serif}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
+  font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0;line-height:1.15;font-weight:700;letter-spacing:-.015em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;
+  font-weight:600;padding:16px 30px;border-radius:var(--r);border:2px solid transparent;
+  text-decoration:none;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+body.t3 .btn{border-radius:99px}
+.btn-main{background:var(--accent);color:#fff}
+.btn-main:hover{background:var(--accent-d)}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+.btn-ghost:hover{background:var(--accent);color:#fff}
+
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+body.t2 header{background:var(--dark)}
+.head{display:flex;align-items:center;gap:24px;padding:14px 0}
+.logo img{width:126px}
+body.t2 .logo img{filter:brightness(0) invert(1)}
+.back{margin-left:auto;text-decoration:none;font-weight:600;color:var(--accent)}
+body.t2 .back{color:#E8B5A5}
+.head .phone{font-weight:700;text-decoration:none;white-space:nowrap}
+body.t2 .head .phone{color:#fff}
+
+.crumbs{padding:22px 0 0;font-size:15px;color:var(--ink-2)}
+.crumbs a{color:var(--accent);text-decoration:none}
+
+.card{display:grid;grid-template-columns:340px 1fr;gap:40px;padding:34px 0 60px;align-items:start}
+.ph{border-radius:var(--r);overflow:hidden;background:var(--powder);aspect-ratio:4/5}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.spec{display:inline-block;background:var(--powder);color:var(--accent-d);font-weight:600;
+  font-size:15px;padding:6px 14px;border-radius:99px;margin-bottom:16px}
+h1{font-size:clamp(28px,3.6vw,42px);margin-bottom:12px}
+.meta{list-style:none;margin:0 0 26px;padding:0}
+.meta li{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:17px}
+.meta .k{flex:0 0 190px;color:var(--ink-2)}
+.meta .v{font-weight:600}
+h2{font-size:24px;margin:0 0 14px}
+.does{list-style:none;margin:0 0 30px;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.does li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 18px;font-size:16px;line-height:1.35}
+.cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.price{font-size:20px;font-weight:700}
+.price span{display:block;font-size:14px;font-weight:400;color:var(--ink-2)}
+
+.also{background:var(--powder);padding:54px 0}
+.also h2{margin-bottom:22px}
+.agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.acard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;text-decoration:none;display:flex;flex-direction:column}
+.acard:hover{border-color:var(--accent)}
+.acard .p{aspect-ratio:1/1;overflow:hidden;background:var(--powder)}
+.acard .p img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.acard .b{padding:16px 16px 18px}
+.acard b{display:block;font-size:17px;margin-bottom:4px}
+.acard span{font-size:14px;color:var(--ink-2)}
+
+footer{background:var(--dark);color:#E9DAD3;padding:40px 0;font-size:16px}
+footer a{color:#fff}
+.fbot{opacity:.7;font-size:14px;margin-top:14px}
+
+.note{position:fixed;left:16px;bottom:16px;z-index:99;background:#241A16;color:#fff;
+  padding:10px 16px;border-radius:99px;font-size:14px;text-decoration:none;opacity:.9}
+
+@media(max-width:900px){
+  .card{grid-template-columns:1fr;gap:26px}
+  .ph{max-width:320px}
+  .agrid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .does{grid-template-columns:1fr}
+  .meta .k{flex:0 0 130px}
+  .agrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a class="note" href="index.html">← все варианты</a>
+
+<header>
+  <div class="wrap head">
+    <a class="logo" href="#"><img src="assets/logo.png" alt="ГрантиМед"></a>
+    <a class="back" data-gm="backlink" href="v1.html">← на главную</a>
+    <a class="phone" data-gm="phone1" href="#"></a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumbs"><a data-gm="backlink2" href="v1.html">Главная</a> » <a data-gm="backlink3" href="v1.html#docs">Врачи</a> » <span data-gm="crumbname"></span></div>
+  <div class="card">
+    <div class="ph"><img data-gm="photo" src="" alt=""></div>
+    <div>
+      <span class="spec" data-gm="spec"></span>
+      <h1 data-gm="name"></h1>
+      <ul class="meta" data-gm="meta"></ul>
+      <h2>Что делает на приёме</h2>
+      <ul class="does" data-gm="does"></ul>
+      <div class="cta">
+        <a class="btn btn-main" data-gm="booklink" href="v1.html#form">Записаться к врачу</a>
+        <a class="btn btn-ghost" data-gm="call" href="#">Позвонить</a>
+        <div class="price" data-gm="price"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="also">
+  <div class="wrap">
+    <h2>Другие врачи центра</h2>
+    <div class="agrid" data-gm="also"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0 0 8px" data-gm="addr"></p>
+    <p style="margin:0"><a data-gm="phone2" href="#"></a> · <a data-gm="email" href="#"></a></p>
+    <p class="fbot">Прототип для согласования. Страница врача — та самая, которой сейчас нет за кнопкой «Подробнее»</p>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script>
+(function () {
+  var D = window.GM;
+  var p = new URLSearchParams(location.search);
+  var v = p.get('v') === '2' ? '2' : (p.get('v') === '3' ? '3' : '1');
+  var id = p.get('id') || D.doctors[0].id;
+  if (v !== '1') document.body.classList.add('t' + v);
+
+  var doc = D.doctors.filter(function (d) { return d.id === id; })[0] || D.doctors[0];
+  var home = 'v' + v + '.html';
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function qa(name) { return Array.prototype.slice.call(document.querySelectorAll('[data-gm="' + name + '"]')); }
+
+  document.title = doc.name + ' — ' + doc.spec + ', ГрантиМед';
+
+  qa('backlink').forEach(function (n) { n.setAttribute('href', home); });
+  qa('backlink2').forEach(function (n) { n.setAttribute('href', home); });
+  qa('backlink3').forEach(function (n) { n.setAttribute('href', home + '#docs'); });
+  qa('booklink').forEach(function (n) { n.setAttribute('href', home + '#form'); });
+  qa('crumbname').forEach(function (n) { n.textContent = doc.short; });
+  qa('name').forEach(function (n) { n.textContent = doc.name; });
+  qa('spec').forEach(function (n) { n.textContent = doc.spec; });
+  qa('photo').forEach(function (n) { n.setAttribute('src', doc.photo); n.setAttribute('alt', doc.name); });
+  qa('addr').forEach(function (n) { n.textContent = D.contacts.address; });
+  qa('phone1').forEach(function (n) {
+    n.textContent = D.contacts.phones[0].num;
+    n.setAttribute('href', 'tel:' + D.contacts.phones[0].tel);
+  });
+  qa('phone2').forEach(function (n) {
+    n.textContent = D.contacts.phones[0].num;
+    n.setAttribute('href', 'tel:' + D.contacts.phones[0].tel);
+  });
+  qa('call').forEach(function (n) {
+    n.setAttribute('href', 'tel:' + D.contacts.phones[0].tel);
+  });
+  qa('email').forEach(function (n) {
+    n.textContent = D.contacts.email;
+    n.setAttribute('href', 'mailto:' + D.contacts.email);
+  });
+
+  qa('meta').forEach(function (box) {
+    [
+      ['Специальность', doc.spec],
+      ['Категория', doc.cat.charAt(0).toUpperCase() + doc.cat.slice(1)],
+      ['Направление', doc.dirName],
+      ['Кого принимает', doc.patients],
+      ['Приём', D.contacts.hoursWeek + ' · ' + D.contacts.hoursWeekend]
+    ].forEach(function (pair) {
+      var li = el('li');
+      li.appendChild(el('span', 'k', pair[0]));
+      li.appendChild(el('span', 'v', pair[1]));
+      box.appendChild(li);
+    });
+  });
+
+  qa('does').forEach(function (box) {
+    doc.does.forEach(function (t) { box.appendChild(el('li', null, t)); });
+  });
+
+  qa('price').forEach(function (box) {
+    box.appendChild(document.createTextNode(doc.price + ' BYN'));
+    box.appendChild(el('span', null, 'консультация'));
+  });
+
+  qa('also').forEach(function (box) {
+    D.doctors.filter(function (d) { return d.id !== doc.id; }).slice(0, 4).forEach(function (d) {
+      var a = el('a', 'acard');
+      a.setAttribute('href', 'vrach.html?v=' + v + '&id=' + d.id);
+      var ph = el('div', 'p');
+      var img = el('img');
+      img.setAttribute('src', d.photo);
+      img.setAttribute('alt', d.name);
+      img.setAttribute('loading', 'lazy');
+      ph.appendChild(img);
+      a.appendChild(ph);
+      var b = el('div', 'b');
+      b.appendChild(el('b', null, d.short));
+      b.appendChild(el('span', null, d.spec));
+      a.appendChild(b);
+      box.appendChild(a);
+    });
+  });
+})();
+</script>
+</body>
+</html>

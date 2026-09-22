@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ГрантиМед — три прототипа главной страницы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FDF8F6;--powder:#EBD6CD;--line:#E7D4CB;--ink:#2E211C;--ink-2:#6B574F;
+  --accent:#A04A3B;--accent-d:#82382B;--deep:#2E211C}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Onest',-apple-system,Segoe UI,Roboto,sans-serif;font-size:18px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0;line-height:1.15;font-weight:700;letter-spacing:-.02em}
+a{color:inherit}
+.top{background:var(--deep);color:#F6EAE4;padding:60px 0 64px}
+.top h1{font-size:clamp(32px,4.4vw,50px);margin-bottom:16px;color:#fff;max-width:20ch}
+.top p{font-size:20px;color:#D5BEB5;max-width:68ch;margin:0}
+.kv{display:flex;flex-wrap:wrap;gap:28px;margin-top:32px;font-size:15px;color:#C4ABA2}
+.kv b{display:block;font-size:22px;color:#E9BFB0;font-weight:700}
+section{padding:64px 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;text-decoration:none;
+  transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(60,35,25,.14)}
+.card .sw{height:120px;display:flex}
+.card .sw i{flex:1}
+.card .b{padding:26px 24px 28px;display:flex;flex-direction:column;flex:1}
+.card .n{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px}
+.card h3{font-size:24px;margin-bottom:10px}
+.card p{margin:0 0 18px;color:var(--ink-2);font-size:16.5px;flex:1}
+.card ul{margin:0 0 20px;padding:0;list-style:none;font-size:15.5px;color:var(--ink-2)}
+.card li{padding:5px 0 5px 20px;position:relative}
+.card li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;
+  border-radius:50%;background:var(--powder)}
+.open{font-weight:600;color:var(--accent)}
+.notes{background:var(--powder);border-radius:16px;padding:32px 34px;margin-top:8px}
+.notes h2{font-size:26px;margin-bottom:14px}
+.notes ul{margin:0;padding-left:22px;color:#4A382F}
+.notes li{margin-bottom:10px}
+.foot{padding:34px 0 60px;color:var(--ink-2);font-size:15px}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <h1>ГрантиМед: три прототипа главной страницы</h1>
+    <p>Все три варианта построены на одном каркасе блоков и сохраняют пудровую гамму клиники.
+      Различаются подачей: от максимально близкого к нынешнему сайту до сдержанного вау-эффекта.
+      Тексты, цены, телефоны и врачи — настоящие, с действующего сайта.</p>
+    <div class="kv">
+      <div><b>3</b>варианта главной</div>
+      <div><b>9</b>карточек врачей с рабочими страницами</div>
+      <div><b>8</b>направлений с ценами</div>
+      <div><b>AA</b>контраст текста по WCAG</div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="cards">
+
+      <a class="card" href="v1.html">
+        <div class="sw"><i style="background:#F0E0D8"></i><i style="background:#9B4A3F"></i><i style="background:#3A2A25"></i><i style="background:#FBF5F2"></i></div>
+        <div class="b">
+          <div class="n">Вариант 1</div>
+          <h3>Свой, но чистый</h3>
+          <p>Та же пудровая гамма и та же логика блоков, что на нынешнем сайте. Главное изменение — читаемость:
+            тёмный текст вместо белого на пудровом, крупный шрифт, ровная сетка.</p>
+          <ul>
+            <li>Минимум движения, ничего не всплывает</li>
+            <li>Шрифт Golos Text, базовый кегль 18px</li>
+            <li>Директор узнает свой сайт</li>
+          </ul>
+          <span class="open">Открыть вариант →</span>
+        </div>
+      </a>
+
+      <a class="card" href="v2.html">
+        <div class="sw"><i style="background:#EDDCD4"></i><i style="background:#A8503F"></i><i style="background:#2A1F1B"></i><i style="background:#fff"></i></div>
+        <div class="b">
+          <div class="n">Вариант 2</div>
+          <h3>Осовремененный</h3>
+          <p>С оглядкой на LifeCity: плотная тёмная шапка, направления читаемым списком в колонках,
+            цены прямо в блоках, выраженный акцентный цвет кнопок.</p>
+          <ul>
+            <li>Строгая сетка, острые углы</li>
+            <li>Шрифт Manrope, тёмная полоса цифр</li>
+            <li>Больше информации на первом экране</li>
+          </ul>
+          <span class="open">Открыть вариант →</span>
+        </div>
+      </a>
+
+      <a class="card" href="v3.html">
+        <div class="sw"><i style="background:#EBD6CD"></i><i style="background:#A04A3B"></i><i style="background:#2E211C"></i><i style="background:#FDF8F6"></i></div>
+        <div class="b">
+          <div class="n">Вариант 3</div>
+          <h3>Сдержанный вау</h3>
+          <p>Крупный первый экран с фотографией и мягким параллаксом, подбор врача в три шага
+            и липкая панель записи на телефоне. Никаких всплывающих окон и автокаруселей.</p>
+          <ul>
+            <li>«Что беспокоит → направление → врач»</li>
+            <li>Шрифт Onest, плавное появление блоков</li>
+            <li>Анимации выключаются, если в системе включено «уменьшить движение»</li>
+          </ul>
+          <span class="open">Открыть вариант →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="notes">
+      <h2>Что важно знать перед просмотром</h2>
+      <ul>
+        <li><b>Кнопка «Подробнее» у врача теперь работает.</b> В любом варианте нажмите на карточку врача —
+          откроется его страница. Сейчас на сайте эта кнопка никуда не ведёт.</li>
+        <li><b>Сетка врачей рассчитана на расширение.</b> Сейчас девять карточек, в конце списка стоит метка
+          под десять новых врачей — добавление не сломает вёрстку.</li>
+        <li><b>Цены настоящие</b>, взяты с действующего прайса. Показана выдержка, полный прайс — отдельной страницей.</li>
+        <li><b>Фотографии врачей настоящие</b>, с текущего сайта. Фотографии интерьера, оборудования и сна —
+          временные, со стоков. Для запуска нужны свои снимки клиники, иначе сайт будет выглядеть как чужой.</li>
+        <li><b>Форма и карта — заглушки.</b> Форма показывает, что заявка принята, но никуда не отправляет.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap foot">
+  Прототип подготовлен для согласования. Замечания удобнее присылать по номеру варианта и названию блока.
+</div>
+
+</body>
+</html>

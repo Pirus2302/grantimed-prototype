@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вариант 2 — ГрантиМед, медицинский центр в Минске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --soft:#FAF2EE; --powder:#EDDCD4; --powder-2:#DDBEB1;
+  --line:#E6D6CE; --ink:#241C19; --ink-2:#6A5A53;
+  --accent:#A8503F; --accent-d:#873D2F; --dark:#2A1F1B;
+  --r:6px; --wrap:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Manrope',-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0;line-height:1.15;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(30px,3.6vw,44px);margin-bottom:12px}
+.lead{color:var(--ink-2);font-size:19px;max-width:68ch;margin:0 0 36px}
+section{padding:72px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;
+  font-weight:700;padding:16px 30px;border-radius:var(--r);border:2px solid transparent;
+  text-decoration:none;cursor:pointer;transition:background .16s,color .16s,border-color .16s}
+.btn-main{background:var(--accent);color:#fff}
+.btn-main:hover{background:var(--accent-d)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--powder-2)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-light{background:#fff;color:var(--accent)}
+.btn-light:hover{background:var(--powder)}
+
+/* ---------- шапка ---------- */
+header{position:sticky;top:0;z-index:60;background:var(--dark);color:#F7EDE9}
+.head{display:flex;align-items:center;gap:28px;padding:14px 0}
+.logo img{width:128px;filter:brightness(0) invert(1)}
+nav.main{display:flex;gap:26px;margin-left:auto;font-weight:600;font-size:16px}
+nav.main a{text-decoration:none;opacity:.9;padding:4px 0;border-bottom:2px solid transparent}
+nav.main a:hover{opacity:1;border-color:var(--powder-2)}
+.head-info{text-align:right;font-size:13px;line-height:1.3;opacity:.75}
+.head .phone{font-weight:800;font-size:19px;text-decoration:none;white-space:nowrap;display:block}
+.head .btn{padding:12px 22px}
+.burger{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.3);
+  color:#fff;border-radius:4px;padding:10px 12px;font:inherit;cursor:pointer}
+.strip{background:var(--powder);color:var(--ink);font-size:15px;font-weight:600}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:6px 26px;padding-top:9px;padding-bottom:9px}
+.strip .sep{opacity:.4;font-weight:400}
+
+/* ---------- первый экран ---------- */
+.hero{background:var(--soft);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;
+  padding-top:66px;padding-bottom:66px}
+.hero h1{font-size:clamp(34px,4.6vw,56px);margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:20px;color:#4B3B34;margin:0 0 30px;max-width:50ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 18px;
+  font-size:15px;font-weight:600}
+.chip b{color:var(--accent)}
+.hero-media{position:relative}
+.hero-media>img{border-radius:var(--r);height:460px;width:100%;object-fit:cover}
+.hero-card{position:absolute;left:-34px;bottom:-26px;background:#fff;border-radius:var(--r);
+  padding:22px 24px;box-shadow:0 20px 50px rgba(45,25,18,.2);max-width:300px}
+.hero-card b{display:block;font-size:17px;margin-bottom:6px}
+.hero-card span{font-size:15px;color:var(--ink-2);line-height:1.4;display:block;margin-bottom:14px}
+.hero-card .btn{width:100%;padding:13px 18px;font-size:16px}
+
+/* ---------- направления списком ---------- */
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.dcol{background:#fff;padding:26px 24px 28px;text-decoration:none;display:block;transition:background .16s}
+.dcol:hover{background:var(--soft)}
+.dcol.flag{background:var(--powder)}
+.dcol.flag:hover{background:var(--powder-2)}
+.dcol-h{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.dcol-h svg{width:34px;height:34px;flex:0 0 34px;stroke:var(--accent);fill:none;stroke-width:1.6}
+.dcol h3{font-size:19px;margin-bottom:4px;letter-spacing:-.01em}
+.dcol .from{font-size:15px;font-weight:700;color:var(--accent)}
+.dcol.flag .from{color:var(--accent-d)}
+.dcol ul{list-style:none;margin:0;padding:0}
+.dcol li{font-size:15.5px;color:var(--ink-2);padding:7px 0 7px 18px;position:relative;line-height:1.35}
+.dcol li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;
+  border-radius:50%;background:var(--powder-2)}
+
+/* ---------- полоса доверия ---------- */
+.band{background:var(--dark);color:#F7EDE9;padding:46px 0}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.band b{display:block;font-size:40px;font-weight:800;color:#E8B5A5;line-height:1.05;margin-bottom:8px;letter-spacing:-.02em}
+.band span{font-size:16px;opacity:.85;line-height:1.4}
+
+/* ---------- сомнология ---------- */
+.somno{background:var(--soft)}
+.somno .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.badge{display:inline-block;background:var(--accent);color:#fff;font-size:13px;font-weight:700;
+  padding:5px 13px;border-radius:99px;margin-bottom:14px;letter-spacing:.03em;text-transform:uppercase}
+.somno ul{margin:0 0 30px;padding:0;list-style:none}
+.somno li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;
+  border-bottom:1px solid var(--line);font-weight:600}
+.somno li i{font-style:normal;font-weight:400;color:var(--ink-2)}
+.somno-pics{display:grid;gap:14px}
+.somno-pics img{border-radius:var(--r);width:100%;object-fit:cover}
+.somno-pics img:first-child{height:250px}
+.somno-pics img:last-child{height:160px}
+
+/* ---------- врачи ---------- */
+.docs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.doc{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;
+  display:flex;flex-direction:column;background:#fff;transition:box-shadow .18s,transform .18s}
+.doc:hover{box-shadow:0 16px 34px rgba(45,25,18,.13);transform:translateY(-4px)}
+.doc-ph{aspect-ratio:4/5;background:var(--powder);overflow:hidden}
+.doc-ph img{width:100%;height:100%;object-fit:cover;object-position:top center;
+  transition:transform .4s ease}
+.doc:hover .doc-ph img{transform:scale(1.04)}
+.doc-b{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column}
+.doc-b h3{font-size:18px;margin-bottom:8px}
+.doc-b .sp{color:var(--accent);font-weight:700;font-size:14px;text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:6px}
+.doc-b .ct{color:var(--ink-2);font-size:14.5px;line-height:1.35;flex:1;margin-bottom:14px}
+.doc-b .more{font-weight:700;font-size:15px;color:var(--accent)}
+.soon{border:2px dashed var(--powder-2);border-radius:var(--r);display:flex;align-items:center;
+  justify-content:center;text-align:center;padding:26px;color:var(--ink-2);font-size:16px;min-height:220px}
+
+/* ---------- цены ---------- */
+.prices{background:var(--soft)}
+.ptabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.ptab{font:inherit;font-weight:700;padding:13px 26px;border-radius:var(--r);cursor:pointer;
+  background:#fff;border:1px solid var(--line);color:var(--ink)}
+.ptab[aria-selected=true]{background:var(--dark);border-color:var(--dark);color:#fff}
+.ptable{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.prow{display:flex;justify-content:space-between;gap:20px;padding:18px 24px;border-bottom:1px solid var(--line)}
+.prow:last-child{border-bottom:0}
+.prow b{white-space:nowrap;font-weight:800;color:var(--accent)}
+.pnote{margin-top:20px;color:var(--ink-2);font-size:16px}
+.pnote a{color:var(--accent);font-weight:700}
+
+/* ---------- как добраться ---------- */
+.way{display:grid;grid-template-columns:1fr 1.2fr;gap:44px;align-items:start}
+.waylist{list-style:none;margin:0;padding:0}
+.waylist li{padding:16px 0;border-bottom:1px solid var(--line)}
+.waylist .k{display:block;font-size:14px;color:var(--ink-2);text-transform:uppercase;
+  letter-spacing:.05em;font-weight:700;margin-bottom:4px}
+.waylist .v{font-weight:600;font-size:19px}
+.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:420px}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+
+/* ---------- faq ---------- */
+.faq{max-width:940px}
+.q{border-bottom:1px solid var(--line)}
+.q summary{list-style:none;cursor:pointer;padding:22px 56px 22px 0;font-weight:700;
+  position:relative;font-size:19px}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:'';position:absolute;right:14px;top:31px;width:12px;height:12px;
+  border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
+  transform:rotate(45deg);transition:transform .2s}
+.q[open] summary::after{transform:rotate(-135deg);top:36px}
+.q .a{padding:0 60px 24px 0;color:var(--ink-2)}
+
+/* ---------- форма ---------- */
+.form-sec{background:var(--dark);color:#F7EDE9}
+.form-sec .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.form-sec h2{color:#fff}
+.form-sec .lead{color:#D8C4BB}
+form{background:#fff;border-radius:var(--r);padding:32px;color:var(--ink)}
+label{display:block;font-weight:700;font-size:15px;margin:0 0 6px}
+.field{margin-bottom:18px}
+input,select{width:100%;font:inherit;padding:15px 16px;border:1px solid var(--line);
+  border-radius:var(--r);background:#FCF7F5;color:var(--ink)}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff}
+.agree{font-size:14px;color:var(--ink-2);margin-top:14px}
+.phone-row{display:block;text-decoration:none;font-size:26px;font-weight:800;margin-bottom:12px;color:#fff}
+.phone-row span{display:block;font-size:13px;font-weight:600;color:#C6AFA5;text-transform:uppercase;letter-spacing:.05em}
+
+footer{background:#1D1512;color:#D8C4BB;padding:56px 0 28px;font-size:16px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px}
+footer h4{margin:0 0 16px;font-size:16px;color:#fff;text-transform:uppercase;letter-spacing:.05em}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin-bottom:9px}
+.fbot{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:20px;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px;opacity:.7}
+
+.note{position:fixed;left:16px;bottom:16px;z-index:99;background:#1D1512;color:#fff;
+  padding:10px 16px;border-radius:99px;font-size:14px;text-decoration:none;opacity:.9}
+.note:hover{opacity:1}
+
+@media(max-width:1100px){
+  .dirs{grid-template-columns:repeat(2,1fr)}
+  .docs{grid-template-columns:repeat(3,1fr)}
+  .band .wrap{grid-template-columns:repeat(2,1fr);gap:26px}
+}
+@media(max-width:900px){
+  nav.main{display:none}
+  .burger{display:block}
+  .head-info{display:none}
+  .hero .wrap,.somno .wrap,.way,.form-sec .wrap{grid-template-columns:1fr}
+  .hero-media>img{height:300px}
+  .hero-card{position:static;max-width:none;margin-top:16px;box-shadow:none;border:1px solid var(--line)}
+  .docs{grid-template-columns:repeat(2,1fr)}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  body{font-size:17px}
+  section{padding:48px 0}
+  .dirs,.docs,.fgrid{grid-template-columns:1fr}
+  .band .wrap{grid-template-columns:1fr}
+  .head{gap:14px}
+  .head .btn{display:none}
+  .logo img{width:104px}
+  .prow{flex-direction:column;gap:4px}
+  .somno li{flex-direction:column;gap:2px}
+}
+</style>
+</head>
+<body data-variant="2">
+
+<a class="note" href="index.html">← все варианты</a>
+
+<header>
+  <div class="wrap head">
+    <a class="logo" href="#top"><img src="assets/logo.png" alt="ГрантиМед"></a>
+    <nav class="main">
+      <a href="#dirs">Направления</a>
+      <a href="#docs">Врачи</a>
+      <a href="#prices">Цены</a>
+      <a href="#somno">Храп и апноэ</a>
+      <a href="#way">Контакты</a>
+    </nav>
+    <div class="head-info">
+      <a class="phone" data-gm="phone1" href="#"></a>
+      <span data-gm="hours"></span>
+    </div>
+    <a class="btn btn-main" href="#form">Записаться</a>
+    <button class="burger" aria-label="Меню">☰</button>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span data-gm="addr"></span>
+    <span class="sep">·</span>
+    <span data-gm="metro"></span>
+    <span class="sep">·</span>
+    <span>Работаем с 2010 года</span>
+  </div>
+</div>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Частный медцентр<br>в <em>Каменной Горке</em></h1>
+      <p>Восемь направлений для детей и взрослых в одном здании: офтальмология, ЛОР,
+         кардиология, гинекология, урология, УЗИ и диагностика сна. Приём по записи, без очередей.</p>
+      <div class="hero-cta">
+        <a class="btn btn-main" href="#form">Записаться на приём</a>
+        <a class="btn btn-ghost" data-gm="call" href="#">Позвонить</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>16</b> лет в Минске</span>
+        <span class="chip"><b>9</b> врачей</span>
+        <span class="chip"><b>20+</b> видов УЗИ</span>
+        <span class="chip">Приём до <b>21:00</b></span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="assets/photo/hero.jpg" alt="Врач показывает пациенту результаты обследования">
+      <div class="hero-card">
+        <b>Нужно УЗИ сегодня?</b>
+        <span>Направление не требуется. Заключение выдаём в день обращения.</span>
+        <a class="btn btn-main" href="#form">Выбрать время</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="dirs">
+  <div class="wrap">
+    <h2>Что мы лечим и диагностируем</h2>
+    <p class="lead">Цена указана за консультацию врача первой категории. Все исследования проходят в этом же здании,
+      ездить по городу между кабинетами не нужно.</p>
+    <div class="dirs" data-gm="dirs"></div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <div><b>с 2010</b><span>Работаем в Минске шестнадцатый год</span></div>
+    <div><b>Без очередей</b><span>Приём строго по записи, вас ждут ко времени</span></div>
+    <div><b>до 21:00</b><span>Будни до девяти вечера, выходные с десяти до четырёх</span></div>
+    <div><b>По полису</b><span>Принимаем пациентов страховых компаний</span></div>
+  </div>
+</div>
+
+<section id="somno" class="somno">
+  <div class="wrap">
+    <div>
+      <span class="badge">Редкая услуга для Минска</span>
+      <h2>Лаборатория сна у вас дома</h2>
+      <p class="lead" style="margin-bottom:26px">Чтобы проверить храп и остановки дыхания во сне, не нужно ехать
+        в клинику и ночевать в палате. Вы забираете прибор, спите в своей кровати, утром возвращаете его нам.</p>
+      <ul>
+        <li><span>Кардиореспираторный мониторинг на дому</span><i>160.00 BYN</i></li>
+        <li><span>Консультация врача по результатам</span><i>45.00 BYN</i></li>
+        <li><span>Подбор СИПАП-аппарата</span><i>бесплатно</i></li>
+        <li><span>Две ночи СИПАП-терапии на пробу</span><i>бесплатно</i></li>
+      </ul>
+      <a class="btn btn-main" href="#form">Записаться на диагностику</a>
+    </div>
+    <div class="somno-pics">
+      <img src="assets/photo/sleep.jpg" alt="Диагностика храпа во сне" loading="lazy">
+      <img src="assets/photo/sleepchart.jpg" alt="Результат кардиореспираторного мониторинга" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="docs">
+  <div class="wrap">
+    <h2>Врачи центра</h2>
+    <p class="lead">У каждого врача есть своя страница: что лечит, какие процедуры проводит, сколько стоит приём
+      и как к нему записаться.</p>
+    <div class="docs" data-gm="docs"></div>
+  </div>
+</section>
+
+<section id="prices" class="prices">
+  <div class="wrap">
+    <h2>Цены</h2>
+    <p class="lead">Стоимость указана в белорусских рублях. Пожалуйста, уточняйте цену при записи на приём.</p>
+    <div class="ptabs" data-gm="ptabs"></div>
+    <div class="ptable" data-gm="ptable"></div>
+    <p class="pnote">Это выдержка из прайса. Полный перечень — более 120 позиций.
+      <a href="https://grantimed.by/czeny/">Смотреть весь прайс</a></p>
+  </div>
+</section>
+
+<section id="way">
+  <div class="wrap">
+    <h2>Как нас найти</h2>
+    <p class="lead">Мы в Каменной Горке, семь минут пешком от метро. У дома есть бесплатная парковка.</p>
+    <div class="way">
+      <ul class="waylist" data-gm="way"></ul>
+      <div class="map">
+        <iframe title="Карта проезда" loading="lazy"
+          src="https://yandex.by/map-widget/v1/?ll=27.435%2C53.906&z=15&text=%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9F%D1%80%D0%B8%D1%82%D1%8B%D1%86%D0%BA%D0%BE%D0%B3%D0%BE%2C%2091"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Частые вопросы</h2>
+    <p class="lead">Отвечаем на самое важное о медцентре.</p>
+    <div class="faq" data-gm="faq"></div>
+  </div>
+</section>
+
+<section id="form" class="form-sec">
+  <div class="wrap">
+    <div>
+      <h2>Записаться на приём</h2>
+      <p class="lead">Оставьте номер — администратор перезвонит в рабочее время и подберёт удобный день.
+        Или позвоните сами, мы ответим сразу.</p>
+      <div data-gm="phones"></div>
+    </div>
+    <form data-gm="form">
+      <div class="field"><label for="n2">Как вас зовут</label><input id="n2" required placeholder="Имя"></div>
+      <div class="field"><label for="p2">Телефон</label><input id="p2" required type="tel" placeholder="+375 __ ___-__-__"></div>
+      <div class="field"><label for="d2">К какому врачу</label><select id="d2" data-gm="dirselect"></select></div>
+      <button class="btn btn-main" style="width:100%">Отправить заявку</button>
+      <p class="agree">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>ГрантиМед</h4>
+        <p style="margin:0 0 16px;opacity:.85">Многопрофильный медицинский центр в Минске.
+          Оториноларингология, офтальмология, гинекология, урология, кардиология и УЗИ-диагностика
+          для детей и взрослых.</p>
+        <p style="margin:0;opacity:.85" data-gm="addr"></p>
+        <p style="margin:6px 0 0"><a data-gm="email" href="#"></a></p>
+      </div>
+      <div>
+        <h4>Направления</h4>
+        <ul data-gm="fdirs"></ul>
+      </div>
+      <div>
+        <h4>Связь с нами</h4>
+        <ul data-gm="fphones"></ul>
+        <p style="margin:16px 0 0;opacity:.85" data-gm="hours2"></p>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>Прототип для согласования. Вариант 2 — «осовремененный»</span>
+      <span>ГрантиМед, Минск</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/icons.js"></script>
+<script src="assets/render.js"></script>
+</body>
+</html>
