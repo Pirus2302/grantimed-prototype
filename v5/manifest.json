@@ -1,0 +1,23 @@
+{
+  "name": "ГрантиМед",
+  "short_name": "ГрантиМед",
+  "description": "Медицинский центр в Минске на Притыцкого, 91.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#efe0cd",
+  "theme_color": "#7b2524",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
